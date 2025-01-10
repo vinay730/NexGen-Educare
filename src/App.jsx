@@ -1,12 +1,14 @@
 import React from 'react'
-// import MainCards from './Components/Cards/MainCards'
 import Navbar from './Components/Navbar/Navbar'
+import MainCards from './Components/Courses/MainCards'
+
 
 function App() {
 
   return (
     <>
-     <Navbar/>
+    <Navbar/>
+     <MainCards/>
     </>
   )
 }
