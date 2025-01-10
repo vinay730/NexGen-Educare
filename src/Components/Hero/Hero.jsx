@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography, keyframes } from '@mui/material';
 import Hero from '../../assets/Hero/HeroImg.png';
-import Navbar from '../Navbar/Navbar';
 
 // Keyframes for background animation
 const backgroundAnimation = keyframes`
@@ -19,7 +18,6 @@ const fadeIn = keyframes`
 const HeroSection = () => {
     return (
         <>
-            <Navbar/>
         <Box
           sx={{
             display: 'flex',
