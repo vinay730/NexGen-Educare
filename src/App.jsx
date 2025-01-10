@@ -1,11 +1,12 @@
 import React from 'react'
-import MainCards from './Components/Cards/MainCards'
+// import MainCards from './Components/Cards/MainCards'
+import Navbar from './Components/Navbar/Navbar'
 
 function App() {
 
   return (
     <>
-     <MainCards/>
+     <Navbar/>
     </>
   )
 }
