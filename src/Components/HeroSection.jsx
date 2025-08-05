@@ -1,15 +1,56 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.jpg";
 import heroImg from "../assets/banner.jpg";
-import course1 from "../assets/digital.jpg";
-import course2 from "../assets/bartending.jpg";
-import course3 from "../assets/makeup.jpg";
+import c1 from "../assets/girl1.jpg";
+import c2 from "../assets/girl2.jpg";
+import c3 from "../assets/girl3.jpg";
+import c4 from "../assets/bartender.jpg";
+import c5 from "../assets/itcourse.jpg";
+import c6 from "../assets/photography.jpg";
+import c7 from "../assets/event.jpg";
+import c8 from "../assets/guitar.jpg";
+import c9 from "../assets/receptionist.jpg";
+import c10 from "../assets/digital.jpg";
+import c11 from "../assets/accounting.jpg";
+import c12 from "../assets/translator.jpg";
+import c13 from "../assets/graphic.jpg";
+import c14 from "../assets/sales.jpg";
+import c15 from "../assets/signlanguage.jpg";
+import c16 from "../assets/security.jpg";
+import c17 from "../assets/girl1.jpg";
+import c18 from "../assets/girl3.jpg";
+import c19 from "../assets/makeup.jpg";
+import c20 from "../assets/digital.jpg";
+import c21 from "../assets/logo.jpg";
+import c22 from "../assets/realEstate.jpg";
+
 import Corousel from "./Corosoul";
+import AnimatedHeading from "./AnimatedeHeading";
+import CourseGrid from "./CourseGrid";
 
 const courses = [
-  { title: "Digital Marketing Course", img: course1 },
-  { title: "Bartending Course", img: course2 },
-  { title: "Get more details", img: course3 },
+  { title: "Digital Marketing", img: c1 },
+  { title: "Bartending", img: c2 },
+  { title: "Real Estate", img: c3 },
+  { title: "Makeup Artistry", img: c4 },
+  { title: "IT Training", img: c5 },
+  { title: "Photography", img: c6 },
+  { title: "Event Planning", img: c7 },
+  { title: "Guitar Lessons", img: c8 },
+  { title: "Reception Skills", img: c9 },
+  { title: "IELTS Prep", img: c10 },
+  { title: "Accounting Basics", img: c11 },
+  { title: "Translator/Interpreter", img: c12 },
+  { title: "Graphic Design", img: c13 },
+  { title: "Sales Training", img: c14 },
+  { title: "Sign Language", img: c15 },
+  { title: "Security Guard Training", img: c16 },
+  { title: "Web Development", img: c17 },
+  { title: "Public Speaking", img: c18 },
+  { title: "Excel Mastery", img: c19 },
+  { title: "Networking", img: c20 },
+  { title: "Leadership Skills", img: c21 },
+  { title: "UI/UX Design", img: c22 },
 ];
 
 const HeroSection = () => {
@@ -36,29 +77,24 @@ const HeroSection = () => {
         className="relative w-full h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImg})` }}
       >
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center px-4">
-          <h1
-            className="text-white text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-tight"
-            style={{ textShadow: "2px 2px 8px rgba(0, 0, 0, 0.6)" }}
-          >
-            We offer all levels of{" "}
-            <span className="text-[#77CDFF]">courses to students across the world.</span>{" "}
-            We want our students to excel.
-          </h1>
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center px-12">
+         <AnimatedHeading/>
         </div>
       </section>
 
       <main className="flex-1 bg-white">
         {/* Courses Grid */}
         <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1
-            className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-tight mb-10"
-            style={{ textShadow: "1px 1px 6px rgba(0, 0, 0, 0.3)" }}
-          >
-            <span className="text-[#F95454]">Our</span>{" "}
-            <span className="px-4 bg-[#77CDFF] text-white">Programs</span>
+          <h1 className="text-6xl font-bold text-center mb-12">
+            <span className="bg-gradient-to-br from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+              Our
+            </span>{" "}
+            <span className="px-2 bg-gradient-to-br from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+              Programs
+            </span>
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <CourseGrid />
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-center">
             {courses.map((c) => (
               <div
                 key={c.title}
@@ -70,16 +106,17 @@ const HeroSection = () => {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="font-semibold text-xl text-[#C62E2E]">
-                    {c.title}
-                  </h3>
+                <h3 className="font-semibold text-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-md inline-block shadow-md">
+                  {c.title}
+                </h3>
+
                   <p className="mt-2 text-gray-600">
                     🎓 Take the first step towards your future today! Enroll now and unlock endless opportunities.
                   </p>
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </section>
 
         {/* About / Mission + Form */}
@@ -89,16 +126,16 @@ const HeroSection = () => {
               className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-tight mb-10"
               style={{ textShadow: "1px 1px 6px rgba(0, 0, 0, 0.3)" }}
             >
-              <span className="bg-[#77CDFF] text-white px-4">Contact</span>{" "}
-              <span className="text-[#F95454]">Form</span>
+              <span className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white px-4">Contact</span>{" "}
+              <span className="bg-gradient-to-br from-blue-500 to-indigo-600">Form</span>
             </h1>
 
-            <div className="flex flex-col lg:flex-row gap-10 items-start justify-center bg-[#0D92F4] p-8 rounded-lg shadow-lg">
+            <div className="flex flex-col lg:flex-row gap-10 items-start justify-center bg-gradient-to-br from-blue-500 to-indigo-600 p-8 rounded-lg shadow-lg">
               {/* Mission Text */}
               <div className="lg:w-1/2 text-center lg:text-left">
-              <h2  className="text-3xl text-white md:text-3xl lg:text-6xl font-bold text-center leading-tight mb-10">General Contact Form</h2>
+                <h2 className="text-3xl text-white md:text-3xl lg:text-6xl font-bold text-center leading-tight mb-10">General Contact Form</h2>
                 <p className=" text-white text-4xl text-center font-bold mb-6">
-                Enroll now and let's journey together to success!
+                  Enroll now and let's journey together to success!
                 </p>
               </div>
 
@@ -154,23 +191,23 @@ const HeroSection = () => {
 
         {/* Campus Facilities */}
         <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <h1
-              className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-tight mb-10"
-              style={{ textShadow: "1px 1px 6px rgba(0, 0, 0, 0.3)" }}
-            >
-              <span className="bg-[#77CDFF] text-white px-4">Campus Facilities</span>{" "}
-             
-            </h1>
+          <h1
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-center leading-tight mb-10"
+            style={{ textShadow: "1px 1px 6px rgba(0, 0, 0, 0.3)" }}
+          >
+            <span className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white px-4">Campus Facilities</span>{" "}
+
+          </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <img
-                src={course1}
+                src={c1}
                 alt="Campus"
                 className="w-full h-64 object-cover rounded-lg"
               />
             </div>
             <div>
-              <h3 className="text-5xl font-semibold mb-3 text-[#0D92F4]">State of the Art Campus</h3>
+              <h3 className="text-5xl font-semibold mb-3 bg-[#0D92F4] text-white">State of the Art Campus</h3>
               <p className="text-gray-700 mb-4">
                 Modern classrooms, dedicated research labs, lush green spaces, and
                 student lounges equipped for a seamless learning experience.
@@ -187,7 +224,7 @@ const HeroSection = () => {
         {/* Events / Testimonials */}
         <section className="bg-gray-50 py-16">
           <div className="max-w-4xl mx-auto px-4 text-center">
-           <h3 className="text-5xl font-semibold mb-3 ">State of the Art Campus-</h3>
+            <h3 className="text-5xl font-semibold mb-3 ">State of the Art Campus-</h3>
             <div className="space-y-4 flex flex-col md:flex-row md:space-x-4 md:space-y-0 justify-center">
 
               {/* <div className="bg-white shadow-md rounded-md p-6">
@@ -196,7 +233,7 @@ const HeroSection = () => {
                   Join us on September 15 to explore our campus and meet faculty.
                 </p>
               </div> */}
-              <Corousel/>
+              <Corousel />
               <div className="bg-white shadow-md rounded-md p-6">
                 <h3 className="text-xl font-semibold">
                   <div className="flex justify-center items-center">
@@ -209,10 +246,10 @@ const HeroSection = () => {
                 </h3>
 
                 <h2 className="text-[#C62E2E] text-4xl font-bold mt-4  text-center">
-                  The NW Career <span className="text-[#0D92F4] text-xl">Education College</span>
+                  THE NW CAREER <br /> <span className="text-[#0D92F4] text-xl">EDUCATIONAL COLLEGE</span>
                 </h2>
-                <p className="text-gray-600  text-3xl mt-16">"Education is the passport to the future, for tomorrow belongs to those who prepare for it today."<br/>
-— Malcolm X</p>
+                <p className="text-gray-600  text-xl mt-16">"Education is the passport to the future, for tomorrow belongs to those who prepare for it today."<br />
+                  — Malcolm X</p>
               </div>
             </div>
           </div>

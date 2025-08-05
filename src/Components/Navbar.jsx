@@ -15,25 +15,37 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "#about" },
+    { name: "About", href: "/about" },
     {
       name: "Courses",
       dropdown: true,
       href: "/courses", // fallback link for mobile
       courses: [
-        { name: "LLB", href: "/courses/llb" },
-        { name: "CLAT", href: "/courses/clat" },
-        { name: "Judiciary", href: "/courses/judiciary" },
-        { name: "NET", href: "/courses/net" },
+        { name: "Bartending", href: "courses/bartender-training" },
+        { name: "Digital", href: "courses/digital-marketing" },
+        { name: "Real Estate", href: "courses/real-estate" },
+        { name: "Makeup", href: "courses/makeup-artist" },
+        { name: "IT Course", href: "courses/it-course" },
+        { name: "Photography", href: "/courses/photography" },
+        { name: "Event Planing Course", href: "/courses/EventPlaning" },
+        { name: "Guitar Lessons", href: "/courses/guitar-lessons" },
+        { name: "Reception Skill", href: "/courses/Reception" },
+        // { name: "Ielts Course", href: "/Ielts" },
+        { name: "Basic Accounting", href: "/courses/Accounting" },
+        { name: "Interpreter/Translator", href: "/courses/Translator" },
+        { name: "Graphic Designe", href: "/courses/Graphic" },
+        { name: "Sales Training", href: "/courses/Sales" },
+        { name: "Sign Language", href: "/courses/Sign" },
+        { name: "Security Guard", href: "/courses/Security" },
       ],
     },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const locationLink = { name: "Location", href: "#location" };
 
   return (
-    <nav className="bg-[#0D92F4] text-white font-semibold w-full sticky top-0 z-50 shadow-md text-center">
+    <nav className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold w-full sticky top-0 z-50 shadow-md text-center">
       <div className="flex items-center justify-between h-16 w-full px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex items-center">
@@ -42,7 +54,7 @@ const Navbar = () => {
             alt="Logo"
             className="h-10 w-10 rounded-full object-cover mr-3"
           />
-       
+
         </div>
 
         {/* Centered Nav Links */}
@@ -70,18 +82,21 @@ const Navbar = () => {
                   </svg>
                 </button>
                 {dropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 bg-white text-gray-800 rounded shadow-md w-40 z-10">
-                    {link.courses.map((course) => (
-                      <a
-                        key={course.name}
-                        href={course.href}
-                        onClick={() => setDropdownOpen(false)}
-                        className="block px-4 py-2 hover:bg-blue-100"
-                      >
-                        {course.name}
-                      </a>
-                    ))}
+                  <div className="absolute top-full left-0 mt-2 bg-white text-gray-800 rounded shadow-md w-max z-10 p-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                      {link.courses.map((course) => (
+                        <a
+                          key={course.name}
+                          href={course.href}
+                          onClick={() => setDropdownOpen(false)}
+                          className="block px-4 py-2 hover:bg-blue-100 rounded whitespace-nowrap"
+                        >
+                          {course.name}
+                        </a>
+                      ))}
+                    </div>
                   </div>
+
                 )}
               </div>
             ) : (
@@ -116,7 +131,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation (Dropdown replaced by regular link) */}
       {isOpen && (
-        <div className="md:hidden w-full bg-[#0D92F4] px-4 pb-4">
+        <div className="md:hidden w-full bg-gradient-to-br from-blue-500 to-indigo-600 px-4 pb-4">
           {[...navLinks, locationLink].map((link) => (
             <a
               key={link.name}

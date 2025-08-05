@@ -4,13 +4,13 @@ import logo from "../assets/logo.jpg";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0D92F4]  text-white py-12 px-4 sm:px-6 lg:px-8 font-semibold">
+    <footer className="bg-gradient-to-br from-blue-500 to-indigo-600  text-white py-12 px-4 sm:px-6 lg:px-8 font-semibold">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Left section */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <h3 className="text-xl font-bold mb-4 flex flex-col items-center">
             <img src={logo} alt="Logo" className="w-16 h-16 rounded-full mb-2" />
-            The NW Career Education College
+            THE NW CAREER <br/> <p className="text-sm font-normal ">EDUCATION COLLEGE</p>
           </h3>
           <p className="text-sm max-w-xs mx-auto">
             We offer all levels of courses to students across the world. We want
@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Details */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <h4 className="font-semibold mb-3">Contact Us</h4>
           <p>
             Email:{" "}
@@ -60,12 +60,12 @@ const Footer = () => {
             </a>
           </p>
           <p>
-            Phone:{" "}<br/>
+            Phone:{" "}
             <a href="tel:+14039214529" className="hover:underline">
               +1 403-921-4529
             </a>
           </p>
-          <p>Address: <br/>Calgary, AB, Canada, Alberta</p>
+          <p>Address: Calgary, AB, Canada, Alberta</p>
 
           {/* Social Media */}
           <div className="mt-4 flex justify-center space-x-4 text-blue-100">
