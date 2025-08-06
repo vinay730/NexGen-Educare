@@ -77,7 +77,7 @@ const CourseGrid = () => {
                 <h3 className="font-semibold text-lg bg-gradient-to-br from-blue-500 to-indigo-600 text-white px-3 py-2 rounded inline-block shadow">
                   {course.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-lg font-bold text-gray-600">
                   🎓 Unlock your potential with this exciting course!
                 </p>
               </div>

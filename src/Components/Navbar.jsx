@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredCourses, setFilteredCourses] = useState([]);
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
@@ -13,40 +17,55 @@ const Navbar = () => {
     setDropdownOpen(false);
   };
 
+  const allCourses = [
+    { name: "Bartending", href: "bartender-training" },
+    { name: "Digital", href: "digital-marketing" },
+    { name: "Real Estate", href: "real-estate" },
+    { name: "Makeup", href: "makeup-artist" },
+    { name: "IT Course", href: "it-course" },
+    { name: "Photography", href: "photography" },
+    { name: "Event Planning", href: "event-planning" },
+    { name: "Guitar Lessons", href: "guitar-lessons" },
+    { name: "Reception Skill", href: "receptionist-training" },
+    { name: "Basic Accounting", href: "basic-accounting" },
+    { name: "Interpreter/Translator", href: "translator" },
+    { name: "Graphic Design", href: "graphic-design" },
+    { name: "Sales Training", href: "sales-training" },
+    { name: "Sign Language", href: "sign-language" },
+    { name: "Security Guard", href: "security-guard" },
+  ];
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     {
       name: "Courses",
       dropdown: true,
-      href: "/courses", // fallback link for mobile
-      courses: [
-        { name: "Bartending", href: "courses/bartender-training" },
-        { name: "Digital", href: "courses/digital-marketing" },
-        { name: "Real Estate", href: "courses/real-estate" },
-        { name: "Makeup", href: "courses/makeup-artist" },
-        { name: "IT Course", href: "courses/it-course" },
-        { name: "Photography", href: "/courses/photography" },
-        { name: "Event Planing Course", href: "/courses/EventPlaning" },
-        { name: "Guitar Lessons", href: "/courses/guitar-lessons" },
-        { name: "Reception Skill", href: "/courses/Reception" },
-        // { name: "Ielts Course", href: "/Ielts" },
-        { name: "Basic Accounting", href: "/courses/Accounting" },
-        { name: "Interpreter/Translator", href: "/courses/Translator" },
-        { name: "Graphic Designe", href: "/courses/Graphic" },
-        { name: "Sales Training", href: "/courses/Sales" },
-        { name: "Sign Language", href: "/courses/Sign" },
-        { name: "Security Guard", href: "/courses/Security" },
-      ],
+      courses: allCourses,
     },
     { name: "Contact", href: "/contact" },
   ];
 
-  const locationLink = { name: "Location", href: "#location" };
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    const suggestions = allCourses.filter((course) =>
+      course.name.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setFilteredCourses(value ? suggestions : []);
+  };
+
+  const handleSuggestionClick = (href) => {
+    setSearchTerm("");
+    setFilteredCourses([]);
+    navigate(`/courses/${href}`);
+  };
 
   return (
-    <nav className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold w-full sticky top-0 z-50 shadow-md text-center">
-      <div className="flex items-center justify-between h-16 w-full px-4 sm:px-6 lg:px-8">
+    <nav className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-semibold w-full sticky top-0 z-50 shadow-md">
+      <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex items-center">
           <img
@@ -54,7 +73,6 @@ const Navbar = () => {
             alt="Logo"
             className="h-10 w-10 rounded-full object-cover mr-3"
           />
-
         </div>
 
         {/* Centered Nav Links */}
@@ -74,11 +92,7 @@ const Navbar = () => {
                     strokeWidth="2"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
                 {dropdownOpen && (
@@ -87,7 +101,7 @@ const Navbar = () => {
                       {link.courses.map((course) => (
                         <a
                           key={course.name}
-                          href={course.href}
+                          href={`/courses/${course.href}`}
                           onClick={() => setDropdownOpen(false)}
                           className="block px-4 py-2 hover:bg-blue-100 rounded whitespace-nowrap"
                         >
@@ -96,7 +110,6 @@ const Navbar = () => {
                       ))}
                     </div>
                   </div>
-
                 )}
               </div>
             ) : (
@@ -111,14 +124,28 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Location on right */}
-        <div className="hidden md:flex items-center">
-          <a
-            href={locationLink.href}
-            className="hover:text-blue-200 transition"
-          >
-            {locationLink.name}
-          </a>
+        {/* Search Bar (Hidden on Mobile) */}
+        <div className="hidden md:flex flex-col relative w-64">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            placeholder="Search for courses..."
+            className="px-3 py-3 rounded-md text-sm text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+          />
+          {filteredCourses.length > 0 && (
+            <div className="absolute top-11 left-0 w-full bg-white text-gray-800 shadow-lg rounded-md z-20 max-h-60 overflow-auto">
+              {filteredCourses.map((course) => (
+                <div
+                  key={course.name}
+                  onClick={() => handleSuggestionClick(course.href)}
+                  className="px-3 py-2 hover:bg-blue-100 cursor-pointer"
+                >
+                  {course.name}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Mobile menu icon */}
@@ -129,19 +156,27 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation (Dropdown replaced by regular link) */}
+      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden w-full bg-gradient-to-br from-blue-500 to-indigo-600 px-4 pb-4">
-          {[...navLinks, locationLink].map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="block py-2 hover:text-blue-200"
-              onClick={closeAll}
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.dropdown ? (
+              <div key={link.name}>
+                <a href="/courses" className="block py-2" onClick={closeAll}>
+                  {link.name}
+                </a>
+              </div>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className="block py-2 hover:text-blue-200"
+                onClick={closeAll}
+              >
+                {link.name}
+              </a>
+            )
+          )}
         </div>
       )}
     </nav>

@@ -7,6 +7,7 @@ import About from './Pages/About';
 import CourseGrid from './Components/CourseGrid';
 import CourseDetail from './Pages/CourseDetail';
 import Courses from './Pages/Courses';
+import Contact from './Pages/Contact';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<CourseGrid />} />
         <Route path="/courses/:courseId" element={<CourseDetail />} />  
       <Route path="/courses" element={<Courses/>} />
+      <Route path="/contact" element={<Contact/>} />
     </Routes>
 
     <Footer/>
