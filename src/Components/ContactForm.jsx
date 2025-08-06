@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import 'animate.css'; // Optional: for better animations
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -7,33 +9,35 @@ const ContactForm = () => {
     message: "",
   });
 
-  const [showPopup, setShowPopup] = useState(false);
-
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowPopup(true);
 
-    // Hide popup after 3 seconds
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 3000);
+    // Show SweetAlert success message
+    Swal.fire({
+      title: `Thanks, ${formData.name || "Guest"}!`,
+      text: "We received your message successfully.",
+      icon: 'success',
+      timer: 2500,
+      showConfirmButton: false,
+      background: '#16a34a',
+      color: '#fff',
+      customClass: {
+        popup: 'animate__animated animate__fadeInDown', // Optional animation
+        title: 'text-white',
+        htmlContainer: 'text-white',
+      }
+    });
 
+    // Reset form
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
     <div className="relative">
-      {/* Success Popup */}
-      {showPopup && (
-        <div className="fixed top-5 right-5 z-50 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg animate-fade-in-out">
-          ✅ Thanks for contacting us, {formData.name || "Guest"}!
-        </div>
-      )}
-
       {/* Contact Form */}
       <div className="max-w-md w-full p-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 shadow-lg mx-auto">
         <h2 className="text-2xl font-semibold mb-2 text-white text-center">
@@ -87,18 +91,6 @@ const ContactForm = () => {
           </button>
         </form>
       </div>
-
-      {/* Popup animation styles */}
-      <style>{`
-        @keyframes fadeInOut {
-          0% { opacity: 0; transform: translateY(-20px); }
-          10%, 90% { opacity: 1; transform: translateY(0); }
-          100% { opacity: 0; transform: translateY(-20px); }
-        }
-        .animate-fade-in-out {
-          animation: fadeInOut 3s ease-in-out forwards;
-        }
-      `}</style>
     </div>
   );
 };
