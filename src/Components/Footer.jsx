@@ -42,11 +42,7 @@ const Footer = () => {
                 Contact
               </a>
             </li>
-            <li>
-              <a href="/location" className="hover:underline hover:text-blue-200">
-                Location
-              </a>
-            </li>
+           
           </ul>
         </div>
 
