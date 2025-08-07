@@ -21,7 +21,7 @@ const AnimatedHeading = () => {
         repeat={Infinity}
         style={{
           display: 'inline-block',
-          color: '#ffffff', // white text
+          color: '#ffffff', 
         }}
       />
     </h1>
