@@ -1,16 +1,16 @@
 import React from 'react'
-import HeroSection from '../Components/HeroSection'
-import CountSection from '../Components/Count'
+import Home from '../Components/Home';
+import About from '../Components/About';
+import Footer from '../Components/Footer';
 
 const HomePage = () => {
   return (
-   <>
-   <HeroSection/>
-    <div>
-      
-      <CountSection/>
-    </div>
-   </>
+    <>
+    <Home/>
+    <About/>
+
+    </>
+    
   )
 }
 
