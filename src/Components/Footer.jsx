@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo.png";
 
 export default function Footer() {
     return (
@@ -72,10 +72,10 @@ export default function Footer() {
             </div>
 
             {/* Bottom Line */}
-            <div className="border-t border-purple-700">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center text-sm text-purple-300 gap-3">
+            <div className="border-t border-purple-700 text-center">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 m-auto flex-col sm:flex-row justify-between items-center text-sm text-purple-300 gap-3">
                     <p>© {new Date().getFullYear()} Your Company. All rights reserved.</p>
-                    <p>Powered by Dricology </p>
+                    <p>Powered by Greekology </p>
                 </div>
             </div>
         </footer>

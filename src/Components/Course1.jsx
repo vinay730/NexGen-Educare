@@ -1,24 +1,28 @@
 import React from "react";
-
+import graphic from "../assets/graphic.jpg";
+import fullstack from "../assets/fullStack.jpg";  
+import web from "../assets/web.jpg";
+import python from "../assets/python.jpg";
+import video from "../assets/video.jpg";
 const courses = [
   {
     title: "Graphic Design",
-    image: "/images/graphic-design.jpg",
+    image: graphic,
     description: "Explore the world of graphic design with our comprehensive courses.",
   },
   {
     title: "Full Stack Developer",
-    image: "/images/fullstack.jpg",
+    image: fullstack,
     description: "Become a full stack developer with our hands-on training and projects.",
   },
   {
     title: "Web Designing",
-    image: "/images/web-design.jpg",
+    image: web,
     description: "Learn the principles of web design and create stunning websites.",
   },
   {
     title: "Python Crash Course",
-    image: "/images/python.jpg",
+    image: python,
     description: "Get started with Python programming through our crash course designed for beginners.",
   },
   {
